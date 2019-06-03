@@ -23,7 +23,6 @@ df = pd.DataFrame(np.arange(0, 1, 0.001), columns=list('X'))
 mean = 0.5
 sd = 0.1
 p = pd.DataFrame(norm.pdf(df,mean,sd), columns=list('p'))
-plot.hold(True)
 plot.plot(df, p)
 plot.xlabel('$X_{1}$')
 plot.ylabel('$P(X_{1})$')
@@ -34,7 +33,6 @@ ax.annotate('outliers', xy=(0.3, 0.25), xytext=(0.45, 0.7),
             arrowprops=dict(facecolor='black', shrink=0.05))
 ax.annotate('outliers', xy=(0.7, 0.25), xytext=(0.45, 0.7),
             arrowprops=dict(facecolor='black', shrink=0.05))
-plot.hold(False)
 plot.show()
 
 # Figure 3.2
@@ -43,7 +41,6 @@ df = pd.DataFrame(np.random.random_sample(size=(100, 2)), columns=list('XY'))
 plot.plot(df['X'], df['Y'], 'ro')
 plot.xlabel('X$_{1}$')
 plot.ylabel('X$_{2}$')
-plot.hold(True)
 plot.plot([0.5], [0.5], 'ko')
 
 # draw the circle with the arrow
@@ -65,8 +62,6 @@ ax.arrow(0.5, 0.5,
 ax.annotate('$d_{min}$', xy=(.6, .5),  xycoords='axes fraction',
                 horizontalalignment='center', verticalalignment='center')
 plot.show()
-plot.hold(False)
-
 # Figure 3.3
 
 np.random.seed(0)
@@ -74,7 +69,6 @@ df1 = pd.DataFrame(np.random.randint(10,20,size=(40, 2)), columns=list('XY'))
 df2 = pd.DataFrame(np.random.randint(70,90,size=(5, 2)), columns=list('XY'))
 df1 = df1 / float(100)
 df2 = df2 / float(100)
-plot.hold(True)
 plot.plot(df1['X'], df1['Y'], 'ro')
 plot.plot(0.7, 0.7, 'ro')
 plot.plot(df2['X'], df2['Y'], 'ro')
@@ -96,7 +90,6 @@ fs = 100
 t = pd.DataFrame(np.arange(0, 16, float(1)/fs), columns=list('X'))
 c1 = 3 * np.sin(2 * math.pi * 0.1 * t)
 c2 = 2 * np.sin(2 * math.pi * t)
-plot.hold(True)
 plot.plot(t, c1, 'b--')
 plot.plot(t, c2, 'b:')
 plot.plot(t, c1+c2, 'b-')
@@ -123,7 +116,6 @@ second_component = pca.components_[1]
 factor_1 = first_component[0]/first_component[1]
 factor_2 = second_component[0]/second_component[1]
 
-plot.hold(True)
 plot.plot(df['X'], df['Y'], 'ro')
 plot.plot(df['X'], df['X']*factor_1, 'r-')
 plot.plot(df['X'], df['X']*factor_2+0.5, 'b-')
@@ -132,13 +124,11 @@ plot.xlim([0,1])
 plot.ylim([0,1])
 plot.xlabel('$X_{1}$')
 plot.ylabel('$X_{2}$')
-plot.hold(False)
 plot.show()
 
 # Figure 3.6
 
 transformed_dataset = np.inner(first_component, df)
-plot.hold(True)
 plot.plot(transformed_dataset, [0]*transformed_dataset.shape[0], 'ro')
 plot.ylim([-0.05,1])
 plot.xlabel('$X\'_{1}$')
@@ -148,16 +138,13 @@ ax.spines['right'].set_visible(False)
 ax.spines['left'].set_visible(False)
 ax.spines['bottom'].set_position('zero')
 plot.legend(['$transformed$ $data$'], loc=(0.5, 0.1))
-plot.hold(False)
 plot.show()
 
 # Figure 3.7
 
 transformed_dataset = np.inner(pca.components_, df)
-plot.hold(True)
 plot.plot(transformed_dataset[0], transformed_dataset[1], 'ro')
 plot.xlabel('$X\'_{1}$')
 plot.ylabel('$X\'_{2}$')
 plot.legend(['$transformed$ $data$'], loc=4)
-plot.hold(False)
 plot.show()

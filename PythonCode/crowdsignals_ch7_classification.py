@@ -55,8 +55,8 @@ prepare = PrepareDatasetForLearning()
 train_X, test_X, train_y, test_y = prepare.split_single_dataset_classification(dataset, ['label'], 'like', 0.7, filter=True, temporal=False)
 #train_X, test_X, train_y, test_y = prepare.split_single_dataset_classification(dataset, ['label'], 'like', 0.01, filter=True, temporal=False)
 
-print 'Training set length is: ', len(train_X.index)
-print 'Test set length is: ', len(test_X.index)
+print('Training set length is: ', len(train_X.index))
+print('Test set length is: ', len(test_X.index))
 
 # Select subsets of the features that we will consider:
 
@@ -65,12 +65,12 @@ basic_features = ['acc_phone_x','acc_phone_y','acc_phone_z','acc_watch_x','acc_w
 pca_features = ['pca_1','pca_2','pca_3','pca_4','pca_5','pca_6','pca_7']
 time_features = [name for name in dataset.columns if '_temp_' in name]
 freq_features = [name for name in dataset.columns if (('_freq' in name) or ('_pse' in name))]
-print '#basic features: ', len(basic_features)
-print '#PCA features: ', len(pca_features)
-print '#time features: ', len(time_features)
-print '#frequency features: ', len(freq_features)
+print('#basic features: ', len(basic_features))
+print('#PCA features: ', len(pca_features))
+print('#time features: ', len(time_features))
+print('#frequency features: ', len(freq_features))
 cluster_features = ['cluster']
-print '#cluster features: ', len(cluster_features)
+print('#cluster features: ', len(cluster_features))
 features_after_chapter_3 = list(set().union(basic_features, pca_features))
 features_after_chapter_4 = list(set().union(basic_features, pca_features, time_features, freq_features))
 features_after_chapter_5 = list(set().union(basic_features, pca_features, time_features, freq_features, cluster_features))
@@ -81,8 +81,8 @@ features_after_chapter_5 = list(set().union(basic_features, pca_features, time_f
 fs = FeatureSelectionClassification()
 
 features, ordered_features, ordered_scores = fs.forward_selection(50, train_X[features_after_chapter_5], train_y)
-print ordered_scores
-print ordered_features
+print(ordered_scores)
+print(ordered_features)
 
 plot.plot(range(1, 51), ordered_scores)
 plot.xlabel('number of features')
@@ -123,8 +123,8 @@ for reg_param in reg_parameters:
 plot.hold(True)
 plot.semilogx(reg_parameters, performance_training, 'r-')
 plot.semilogx(reg_parameters, performance_test, 'b:')
-print performance_training
-print performance_test
+print(performance_training)
+print(performance_test)
 plot.xlabel('regularization parameter value')
 plot.ylabel('accuracy')
 plot.ylim([0.95, 1.01])

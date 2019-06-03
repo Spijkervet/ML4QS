@@ -76,7 +76,7 @@ class PrepareDatasetForLearning:
             training_set_y = dataset.ix[0:end_training_set, class_labels]
             test_set_X = dataset.ix[end_training_set:len(dataset.index), features]
             test_set_y = dataset.ix[end_training_set:len(dataset.index), class_labels]
-            print test_set_y
+            print(test_set_y)
         # For non temporal data we use a standard function to randomly split the dataset.
         else:
             training_set_X, test_set_X, training_set_y, test_set_y = train_test_split(dataset.ix[:,features],

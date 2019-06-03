@@ -33,7 +33,6 @@ class VisualizeDataset:
             xar = [xar]
 
         f.subplots_adjust(hspace=0.4)
-        plot.hold(True)
         xfmt = md.DateFormatter('%H:%M')
 
         # Pass through the columns specified.

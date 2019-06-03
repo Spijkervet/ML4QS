@@ -26,7 +26,6 @@ np.random.seed(0)
 
 # Figure 7.2
 
-plot.hold(True)
 df1 = pd.DataFrame(np.random.normal(30,5,size=(50, 2)), columns=list('XY'))
 df2 = pd.DataFrame(np.random.normal(70,5,size=(50, 2)), columns=list('XY'))
 df1 = df1 / float(100)
@@ -40,12 +39,10 @@ plot.xlim([0,1])
 plot.ylim([0,1])
 plot.xlabel('$X_{1}$')
 plot.ylabel('$X_{2}$')
-plot.hold(False)
 plot.show()
 
 # Figure 7.3
 
-plot.hold(True)
 df1 = pd.DataFrame(np.vstack([np.hstack([np.random.normal(50,5,size=(50, 1)), np.random.normal(80,5,size=(50, 1))]),
                               np.hstack([np.random.normal(50,5,size=(50, 1)), np.random.normal(20,5,size=(50, 1))])]),
                               columns=list('XY'))
@@ -75,11 +72,9 @@ plot.xlim([0,1])
 plot.ylim([0,1])
 plot.xlabel('$X_{1}$')
 plot.ylabel('$X_{2}$')
-plot.hold(False)
 plot.show()
 
 # Figure 7.6
-plot.hold(True)
 df1 = pd.DataFrame(np.random.normal(30,5,size=(50, 2)), columns=list('XY'))
 df2 = pd.DataFrame(np.random.normal(70,5,size=(50, 2)), columns=list('XY'))
 df1 = df1 / float(100)
@@ -129,7 +124,6 @@ ax.annotate ('', (x[2], y_1[2]), (x[4]-0.02, y_2[4]+0.02), arrowprops={'arrowsty
 ax.text(0.25, 0.6, '$2/|W|$',
         verticalalignment='bottom', horizontalalignment='left',
         color='black', fontsize=10)
-plot.hold(False)
 plot.show()
 
 # Figure 7.7
@@ -153,7 +147,6 @@ for i in range(0,1000):
 fig = plot.figure(figsize=plot.figaspect(2.))
 ax = fig.add_subplot(1, 2, 1)
 
-plot.hold(True)
 ax.plot(x_1,y_1,'ro')
 ax.plot(x_2,y_2,'bo')
 ax.legend(['$class$ $1$ $(other$ $activity)$', '$class$ $2$ $(walking)$'], loc=2, fontsize='small', numpoints=1)
@@ -180,12 +173,10 @@ ax.set_ylabel('$X_{2}$')
 ax.set_zlabel('$e^{||x-x''||^{2}/2\cdot\sigma^{2}}$')
 ax.legend(['$class$ $1$ $(other$ $activity)$', '$class$ $2$ $(walking)$'], loc=2, fontsize='small', numpoints=1)
 
-plot.hold(False)
 plot.show()
 
 # Figure 7.8
 
-plot.hold(True)
 df1 = pd.DataFrame(np.random.normal(30,5,size=(50, 2)), columns=list('XY'))
 df2 = pd.DataFrame(np.random.normal(70,5,size=(50, 2)), columns=list('XY'))
 df1 = df1 / float(100)
@@ -206,5 +197,4 @@ plot.xlim([0,1])
 plot.ylim([0,1])
 plot.xlabel('$X_{1}$')
 plot.ylabel('$X_{2}$')
-plot.hold(False)
 plot.show()

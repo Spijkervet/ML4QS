@@ -30,7 +30,6 @@ c1 = 3 * np.sin(2 * math.pi * 0.2 * df['X'])
 c2 = 2 * np.sin(2 * math.pi * 0.25 * (df['X']-2)) + 5
 df['Y'] = c1 + c2
 
-plot.hold(True)
 plot.plot(df['X'], df['Y'], 'b-')
 plot.legend(['$example$ $measurement$ $sequence$'], loc=3, fontsize='small')
 plot.xlabel('time')
@@ -52,7 +51,6 @@ for col in data_table.columns:
         values.append(data_table.ix[data_table.index, col])
 
 fig = plot.figure()
-plot.hold(True)
 ax1 = fig.add_subplot(111)
 plot.xlim([0, 5])
 ax1.plot(frequencies, values, 'b+')

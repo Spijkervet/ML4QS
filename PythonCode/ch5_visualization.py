@@ -26,7 +26,6 @@ np.random.seed(0)
 points_x = [0.25, 0.75]
 points_y = [0.25, 0.75]
 
-plot.hold(True)
 plot.plot(points_x, points_y, 'ro')
 manhattan_x = [points_x[0], points_x[0], points_x[1]]
 manhattan_y = [points_y[0], points_y[1], points_y[1]]
@@ -41,7 +40,6 @@ plot.xlabel('$X_{1}$')
 plot.ylabel('$X_{2}$')
 plot.xlim([0,1])
 plot.ylim([0,1])
-plot.hold(False)
 plot.show()
 
 # Figure 5.2 (complicated figure....)
@@ -53,7 +51,6 @@ p = pd.DataFrame(norm.pdf(df,mean,sd), columns=list('p'))
 mean2 = 0.6
 sd2 = 0.2
 p2 = pd.DataFrame(norm.pdf(df,mean2,sd2), columns=list('p'))
-plot.hold(True)
 
 f, axarr = plot.subplots(7, 3)
 f.subplots_adjust(hspace=0.8)
@@ -183,7 +180,6 @@ axarr[6, 1].yaxis.set_ticklabels([])
 axarr[6, 1].set_xlabel('$X_{p}$')
 axarr[6, 1].set_ylabel('$P(X_{p})$')
 axarr[6, 2].axes.set_axis_off()
-plot.hold(False)
 plot.show()
 
 # Figure 5.3
@@ -191,7 +187,6 @@ plot.show()
 time = np.array([1,2,3,4,5,6,7])
 y_arnold = np.array([0.2,0.2,0.5,0.2,0.2,0.2,0.2])
 y_eric = np.array([0.18,0.18,0.18,0.34,0.5,0.34,0.18])
-plot.hold(True)
 plot.plot(time, y_arnold, 'b-o')
 plot.plot(time, y_eric, 'r:*')
 
@@ -199,7 +194,6 @@ plot.legend(['$Arnold$','$Eric$'], loc=1, fontsize='small')
 plot.xlabel('time')
 plot.ylabel('$X_{1}$')
 plot.ylim([0,1])
-plot.hold(False)
 plot.show()
 
 # Figure 5.4
@@ -207,7 +201,6 @@ plot.show()
 f, axarr = plot.subplots(2, 2)
 f.subplots_adjust(hspace=0)
 f.subplots_adjust(wspace=0)
-plot.hold(True)
 axarr[0, 0].axes.set_axis_off()
 axarr[0, 0].set_xlim([0,max(1-y_arnold)+0.05])
 axarr[0, 0].set_ylim([1,8])
@@ -238,7 +231,6 @@ axarr[1, 1].axes.set_axis_off()
 axarr[1, 1].set_xlim([1,8])
 axarr[1, 1].set_ylim([0,max(1-y_eric)+0.05])
 axarr[1, 1].plot(time+0.5, 1-y_eric, 'r-*')
-plot.hold(False)
 plot.show()
 
 # Figure 5.5
@@ -247,7 +239,6 @@ np.random.seed(0)
 f, axarr = plot.subplots(2, 2)
 f.subplots_adjust(hspace=0.4)
 f.subplots_adjust(wspace=0.4)
-plot.hold(True)
 
 # Generate random data points.
 numbers = np.vstack([np.random.randint(10,20,size=(10, 2)),np.random.randint(70,90,size=(10, 2))])
@@ -309,7 +300,6 @@ axarr[1, 1].set_xlabel('$X_{1}$')
 axarr[1, 1].set_ylabel('$X_{2}$')
 axarr[1, 1].set_title('$step$ $4:$ $cluster$ $assignment$')
 
-plot.hold(False)
 plot.show()
 
 # Figure 5.7
@@ -320,8 +310,7 @@ numbers = np.vstack([np.random.randint(0,20,size=(20, 2)),
                      np.random.randint(40,60,size=(20, 2))])
 numbers = pd.DataFrame(numbers, columns=list('XY'))
 numbers = numbers / float(100)
-print numbers
-plot.hold(True)
+print(numbers)
 values = np.arange(0,1,0.2)
 plot.xlim([0,1])
 plot.ylim([0,1])
@@ -339,5 +328,4 @@ ax.add_patch(Rectangle((0.6, 0.6), 0.4, 0.4,alpha=0.5, color='grey'))
 plot.xlabel('$X_{1}$')
 plot.ylabel('$X_{2}$')
 
-plot.hold(False)
 plot.show()

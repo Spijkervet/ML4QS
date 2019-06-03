@@ -51,8 +51,8 @@ train_X, test_X, train_y, test_y = prepare.split_single_dataset_regression_by_ti
                                                                                    '2016-02-08 19:34:07', '2016-02-08 20:07:50')
 #                                                                                   '2016-02-08 18:28:58','2016-02-08 18:28:59')
 
-print 'Training set length is: ', len(train_X.index)
-print 'Test set length is: ', len(test_X.index)
+print('Training set length is: ', len(train_X.index))
+print('Test set length is: ', len(test_X.index))
 
 # Select subsets of the features that we will consider:
 
@@ -62,12 +62,12 @@ basic_features = ['acc_phone_x','acc_phone_y','acc_phone_z','acc_watch_x','acc_w
 pca_features = ['pca_1','pca_2','pca_3','pca_4','pca_5','pca_6','pca_7']
 time_features = [name for name in dataset.columns if ('temp_' in name and not 'hr_watch' in name)]
 freq_features = [name for name in dataset.columns if (('_freq' in name) or ('_pse' in name))]
-print '#basic features: ', len(basic_features)
-print '#PCA features: ', len(pca_features)
-print '#time features: ', len(time_features)
-print '#frequency features: ', len(freq_features)
+print('#basic features: ', len(basic_features))
+print('#PCA features: ', len(pca_features))
+print('#time features: ', len(time_features))
+print('#frequency features: ', len(freq_features))
 cluster_features = ['cluster']
-print '#cluster features: ', len(cluster_features)
+print('#cluster features: ', len(cluster_features))
 features_after_chapter_3 = list(set().union(basic_features, pca_features))
 features_after_chapter_4 = list(set().union(basic_features, pca_features, time_features, freq_features))
 features_after_chapter_5 = list(set().union(basic_features, pca_features, time_features, freq_features, cluster_features))
@@ -181,7 +181,7 @@ for i in range(0, len(possible_feature_sets)):
     util.print_table_row_performances_regression(feature_names[i], len(selected_train_X.index), len(selected_test_X.index), scores_with_sd)
     scores_over_all_algs.append(scores_with_sd)
 
-print scores_over_all_algs
+print(scores_over_all_algs)
 DataViz.plot_performances_regression(['NN', 'RF', 'SVM', 'KNN', 'DT'], feature_names, scores_over_all_algs)
 
 regr_train_y, regr_test_y = learner.random_forest(train_X[features_after_chapter_5], train_y, test_X[features_after_chapter_5], gridsearch=True, print_model_details=True)
