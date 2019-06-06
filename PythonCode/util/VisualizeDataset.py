@@ -12,6 +12,7 @@ import math
 import sys
 import dateutil
 
+
 class VisualizeDataset:
 
     point_displays = ['+', 'x'] #'*', 'd', 'o', 's', '<', '>']
