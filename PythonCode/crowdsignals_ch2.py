@@ -30,11 +30,10 @@ if not os.path.exists(result_dataset_path):
 # coarse grained, namely one measurement per minute, and secondly use four measurements
 # per second
 
-granularities = [60000, 250]
+granularities = [600000]
 datasets = []
 
 for milliseconds_per_instance in granularities:
-
     # Create an initial dataset object with the base directory for our data and a granularity
     DataSet = CreateDataset(dataset_path, milliseconds_per_instance)
 
@@ -78,10 +77,10 @@ for milliseconds_per_instance in granularities:
     DataViz = VisualizeDataset()
 
     # Boxplot
-    DataViz.plot_dataset_boxplot(dataset, ['acc_phone_x','acc_phone_y','acc_phone_z','acc_watch_x','acc_watch_y','acc_watch_z'])
+    # DataViz.plot_dataset_boxplot(dataset, ['acc_phone_x','acc_phone_y','acc_phone_z','acc_watch_x','acc_watch_y','acc_watch_z'])
 
     # Plot all data
-    DataViz.plot_dataset(dataset, ['acc_', 'gyr_', 'hr_watch_rate', 'light_phone_lux', 'mag_', 'press_phone_', 'label'], ['like', 'like', 'like', 'like', 'like', 'like', 'like','like'], ['line', 'line', 'line', 'line', 'line', 'line', 'points', 'points'])
+    # DataViz.plot_dataset(dataset, ['acc_', 'gyr_', 'hr_watch_rate', 'light_phone_lux', 'mag_', 'press_phone_', 'label'], ['like', 'like', 'like', 'like', 'like', 'like', 'like','like'], ['line', 'line', 'line', 'line', 'line', 'line', 'points', 'points'])
 
     # And print a summary of the dataset
 
@@ -89,8 +88,6 @@ for milliseconds_per_instance in granularities:
     datasets.append(copy.deepcopy(dataset))
 
 # And print the table that has been included in the book
-
-util.print_latex_table_statistics_two_datasets(datasets[0], datasets[1])
-
+# util.print_latex_table_statistics_two_datasets(datasets[0], datasets[1])
 # Finally, store the last dataset we have generated (250 ms).
 dataset.to_csv(result_dataset_path + 'chapter2_result.csv')
